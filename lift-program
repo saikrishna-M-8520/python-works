@@ -1,47 +1,34 @@
 def simple_lift():
+    current_floor = 1  # Lift starts at floor 1
+    print("Welcome to the 4-floor lift system!")
 
+    while True:
+        print(f"Current floor: {current_floor}")
 
+        try:
+            target_floor = int(input("Enter the floor you want to go to (0-4) or enter 0 to exit: "))
 
- current_floor = 1 # Lift starts at floor 1
+            if target_floor == 0:
+                print("Exiting the lift system. Have a nice day!")
+                break
 
- print("Welcome to the 4-floor lift system!")
+            if target_floor < 0 or target_floor > 4:
+                print("Invalid floor! Please select a floor between 1 and 4.")
+            elif target_floor == current_floor:
+                print(f"Lift is already on floor {current_floor}.")
+            elif target_floor > current_floor:
+                # Move up
+                print(f"Moving up from floor {current_floor} to floor {target_floor}...")
+                current_floor = target_floor
+                print(f"Lift has arrived at floor {current_floor}")
+            elif target_floor < current_floor:
+                # Move down
+                print(f"Moving down from floor {current_floor} to floor {target_floor}...")
+                current_floor = target_floor
+                print(f"Lift has arrived at floor {current_floor}")
 
- while True:
+        except ValueError:
+            print("Invalid input! Please enter a number between 0 and 4.")
 
-  print(f"Current floor: {current_floor}")
-
-  target_floor = int(input("Enter the floor you want to go to (0-4): "))
-
-  #if target_floor == 0:
-
-   #print("Exiting the lift system. Have a nice day!")
-
-   #break
-
-  if target_floor < 0 or target_floor > 4:
-
-   print("Invalid floor! Please select a floor between 0 and 4.")
-
-  elif target_floor == current_floor:
-
-   print(f"Lift is already on floor {current_floor}.")
-
-  elif target_floor > current_floor:
-
-   # Move up
-
-   print(f"Moving up from floor {current_floor} to floor {target_floor}...")
-
-   current_floor = target_floor
-
-   print(f"Lift has arrived at floor {current_floor}")
-
-  elif target_floor < current_floor:
-
-   # Move down
-
-   print(f"Moving down from floor {current_floor} to floor {target_floor}...")
-
-   current_floor = target_floor
-
-   print(f"Lift has arrived at floor {current_floor}")
+if __name__ == "__main__":
+    simple_lift()

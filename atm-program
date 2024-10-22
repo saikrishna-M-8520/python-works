@@ -1,0 +1,54 @@
+def atm():
+
+  print("Welcome to atm!")
+
+  while True:
+
+    amount= int(input("Please enter the amount in multiples of 500rs: "))
+
+    if amount%500==0:
+
+      print ("Please take the cash!")
+
+      break
+
+    else:
+
+      print("please enter valid input:" )
+
+atm()
+
+
+
+def atm_withdrawal():
+
+  print("Welcome to the ATM!")
+
+  print("Available denominations: ₹500, ₹2000")
+
+  while True:
+
+    try:
+
+      amount = int(input("Please enter the amount you want to withdraw: "))
+
+      # Check if the amount is valid
+
+      if amount % 500 != 0:
+
+        print("Please enter the value in multiples of ₹500 or ₹2000 only.")
+
+      else:
+
+        print(f"Transaction successful. You have withdrawn ₹{amount}.")
+
+        break
+
+    except ValueError:
+
+      print("Invalid input. Please enter a numeric value.")
+
+# Calling the function to simulate ATM withdrawal
+
+atm_withdrawal()
+
